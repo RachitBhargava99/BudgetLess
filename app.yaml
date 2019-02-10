@@ -1,0 +1,14 @@
+service: finbuddy
+runtime: python37
+entrypoint: gunicorn -b :$PORT run:app
+
+instance_class: F4
+
+env_variables:
+  SQLALCHEMY_DATABASE_URI: sqlite:///site.db
+  FISERV_API_KEY: prod-a59aa9a65739dcebd25d1d1c1621c703b22ac8c5e9bd99100cab75be443ccb1e7d6066256655505e476ab01a2385692abdd7845d40b4622bdfdccac3a52e70bf
+  BUSINESS_ID: BUSN-551be0cdb8ae0bb5b84c42475ccf9606e59a3062f7e5fd6ba5512508bf69fc90
+
+resources:
+  memory_gb: 1
+  disk_size_gb: 10
